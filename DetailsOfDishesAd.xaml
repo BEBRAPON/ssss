@@ -1,0 +1,62 @@
+﻿<Page x:Class="Lab5.DetailsOfDishesAd"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Lab5"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Background="White"
+      Title="DetailsOfDishesAd">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.2*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition Height="0.5*"/>
+            <RowDefinition Height="0.5*"/>
+        </Grid.RowDefinitions>
+        <DataGrid x:Name="details_of_dishes" Grid.Row="0" Grid.RowSpan="4" Grid.ColumnSpan="2" SelectionChanged="details_of_dishes_SelectionChanged"
+                  ItemsSource="{Binding Items1}"
+                  CanUserAddRows="False"
+                  materialDesign:DataGridAssist.SelectedCellBorderBrush="Crimson" IsSynchronizedWithCurrentItem="False"/>
+        <Button
+            x:Name="Import"
+            Grid.Row="4" Grid.ColumnSpan="2"
+            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+            Content="Импортировать данные"/>
+        <Button
+            x:Name="Delete"
+            Grid.Row="4" Grid.ColumnSpan="3" Grid.Column="3"
+            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+            Content="Удалить данные" Click="Delete_Click"/>
+        <Button
+            x:Name="Insert"
+            Grid.Row="3" Grid.Column="3"
+            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+            Content="Добавить данные" Click="Insert_Click"/>
+        <Button
+            x:Name="Update"
+            Grid.Row="3" Grid.Column="5"
+            Style="{StaticResource MaterialDesignOutlinedDarkButton}"
+            Content="Изменить данные" Click="Update_Click"/>
+        <ComboBox x:Name="FKChoice"
+                  VerticalAlignment="Bottom"
+            Grid.Column="3" Grid.Row="2" 
+            materialDesign:HintAssist.Hint="Выберите блюдо" SelectionChanged="FKChoice_SelectionChanged"/>
+        <ComboBox x:Name="FK2Choice"
+                  VerticalAlignment="Bottom"
+            Grid.Column="5" Grid.Row="2" 
+            materialDesign:HintAssist.Hint="Выбирете продукты (в блюде)"/>
+    </Grid>
+</Page>
